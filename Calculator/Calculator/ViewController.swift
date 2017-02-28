@@ -17,7 +17,9 @@ class ViewController: UIViewController {
   @IBAction func digitPressed(_ sender: UIButton) {
     let digit = sender.currentTitle!
     if userIsInTheMiddleOfTyping {
-      display.text?.append(digit)
+      if digit != "." || !(display.text?.contains("."))! {
+        display.text?.append(digit)
+      }
     }else{
       display.text = digit
       userIsInTheMiddleOfTyping = true
